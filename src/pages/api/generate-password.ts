@@ -45,7 +45,7 @@ const calculatePasswordStrength = (password: string) => {
   if (criteriaMet === 4) return "strong";
   if (criteriaMet === 3) return "medium";
   if (criteriaMet === 2) return "weak";
-  return "Very Weak";
+  return "very Weak";
 };
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
@@ -70,7 +70,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const password = generatePassword({
-    length,
+    length: parsedLength,
     useSpecialChars,
     useNumbers,
     useUppercase,
