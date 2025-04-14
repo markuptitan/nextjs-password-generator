@@ -1,8 +1,19 @@
+type PasswordOptions = {
+  length: number;
+  useUppercase: boolean;
+  useNumbers: boolean;
+  useSpecialChars: boolean;
+};
+
+type PasswordFormProps = {
+  onGenerate: (options: PasswordOptions) => void;
+};
+
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
-export default function PasswordForm({ onGenerate }: { onGenerate: Function }) {
+export default function PasswordForm({ onGenerate }: PasswordFormProps) {
   const [length, setLength] = useState(12);
   const [useUppercase, setUseUppercase] = useState(true);
   const [useNumbers, setUseNumbers] = useState(true);
